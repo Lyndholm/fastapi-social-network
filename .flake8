@@ -1,0 +1,10 @@
+[flake8]
+max-complexity = 10
+max-doc-length = 80
+max-line-length = 120
+extend-ignore = E203
+exclude =
+    .git,
+    .venv,
+    .vscode,
+    __pycache__
