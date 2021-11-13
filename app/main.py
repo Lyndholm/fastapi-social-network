@@ -59,6 +59,14 @@ async def update_post(post_id: int, payload: schemas.PostCreate, db: Session = D
     return post.first()
 
 
+@app.get("/users/{user_id}", response_model=schemas.UserOut)
+async def get_user(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.id == user_id).first()
+    if not user:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail=f"user with id {user_id} was not found")
+    return user
+
+
 @app.post("/users", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     user.password = utils.hash_string(user.password)
