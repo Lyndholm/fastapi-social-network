@@ -11,7 +11,7 @@ from .config import config
 
 SECRET_KEY = config.ENCODER_SECRET_KEY
 ALGORITHM = config.ENCODER_ALGORITHM
-ACCESS_TOKEN_EXPIRE_MINUTES = config.ACCESS_TOKEN_EXPIRE_MINUTES
+ACCESS_TOKEN_EXPIRE_MINUTES = int(config.ACCESS_TOKEN_EXPIRE_MINUTES)
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
