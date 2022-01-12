@@ -1,7 +1,5 @@
-from os import stat
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from starlette.status import HTTP_404_NOT_FOUND
 
 from .. import database, models, oauth2, schemas
 
